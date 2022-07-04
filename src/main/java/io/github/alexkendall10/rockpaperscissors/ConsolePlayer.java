@@ -14,9 +14,9 @@ public class ConsolePlayer extends AbstractPlayer {
 
     public Movement chooseMovement() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce your movement (rock, paper or scissors)");
-        String election = scanner.nextLine();
+        System.out.println("Introduce your movement (ROCK, PAPER or SCISSORS)");
+        String selection = scanner.nextLine().toUpperCase();
         scanner.close();
-        return Movement.valueOf(election);
+        return Movement.valueOf(selection);
     }
 }
