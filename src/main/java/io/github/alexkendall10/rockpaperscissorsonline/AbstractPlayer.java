@@ -1,9 +1,7 @@
-package io.github.alexkendall10.rockpaperscissors;
+package io.github.alexkendall10.rockpaperscissorsonline;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @RequiredArgsConstructor
 @Getter

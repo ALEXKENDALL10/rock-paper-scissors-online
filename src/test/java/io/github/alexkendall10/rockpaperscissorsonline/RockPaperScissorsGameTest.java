@@ -1,4 +1,4 @@
-package io.github.alexkendall10.rockpaperscissors;
+package io.github.alexkendall10.rockpaperscissorsonline;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

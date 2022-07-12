@@ -1,4 +1,4 @@
-package io.github.alexkendall10.rockpaperscissors;
+package io.github.alexkendall10.rockpaperscissorsonline;
 
 import lombok.*;
 import lombok.extern.java.Log;

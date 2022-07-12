@@ -1,6 +1,4 @@
-package io.github.alexkendall10.rockpaperscissors;
-
-import lombok.Getter;
+package io.github.alexkendall10.rockpaperscissorsonline;
 
 import java.util.Random;
 

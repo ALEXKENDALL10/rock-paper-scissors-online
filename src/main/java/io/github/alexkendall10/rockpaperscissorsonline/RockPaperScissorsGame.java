@@ -1,10 +1,9 @@
-package io.github.alexkendall10.rockpaperscissors;
+package io.github.alexkendall10.rockpaperscissorsonline;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 @AllArgsConstructor
 @Log
