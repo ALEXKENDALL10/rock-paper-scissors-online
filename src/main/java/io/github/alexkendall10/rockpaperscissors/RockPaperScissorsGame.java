@@ -35,7 +35,7 @@ public class RockPaperScissorsGame {
         log.info(player1.getName() + " HAS CHOSEN " + m1p1);
         log.info(player2.getName() + " HAS CHOSEN " + m1p2);
 
-        Winner winner = whoWins(m1p1, m1p2);
+        Winner winner = whoWinsARound(m1p1, m1p2);
         log.info("THE WINNER IS " + winner);
         if (winner == Winner.PLAYER_1) {
             player1.addWonRound();
@@ -45,7 +45,7 @@ public class RockPaperScissorsGame {
         return winner != Winner.DRAW;
     }
 
-    private Winner whoWins(Movement move1, Movement move2) {
+    static Winner whoWinsARound(Movement move1, Movement move2) {
         if (move1.equals(move2))
             return Winner.DRAW;
         else if ((move1.ordinal() + 1) % 3 == move2.ordinal()) // (m1+1) %3 == m2 -> m2 wins
