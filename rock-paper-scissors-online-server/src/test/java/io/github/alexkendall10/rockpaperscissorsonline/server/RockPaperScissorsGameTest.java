@@ -1,5 +1,6 @@
-package io.github.alexkendall10.rockpaperscissorsonline;
+package io.github.alexkendall10.rockpaperscissorsonline.server;
 
+import io.github.alexkendall10.rockpaperscissorsonline.commons.Movement;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

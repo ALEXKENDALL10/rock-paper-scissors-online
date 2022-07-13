@@ -1,5 +1,6 @@
-package io.github.alexkendall10.rockpaperscissorsonline;
+package io.github.alexkendall10.rockpaperscissorsonline.server;
 
+import io.github.alexkendall10.rockpaperscissorsonline.commons.Movement;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 
@@ -8,8 +9,8 @@ import java.io.IOException;
 @AllArgsConstructor
 @Log
 public class RockPaperScissorsGame {
-    private AbstractPlayer player1;
-    private AbstractPlayer player2;
+    private Player player1;
+    private Player player2;
     private int roundsNumber;
 
 
@@ -22,7 +23,7 @@ public class RockPaperScissorsGame {
                 log.info("RETRYING ROUND NUMBER " + i + ":");
             }
         }
-        AbstractPlayer winnerPlayer = player1.getWonRounds() > player2.getWonRounds() ? player1 : player2;
+        Player winnerPlayer = player1.getWonRounds() > player2.getWonRounds() ? player1 : player2;
         log.info("THE WINNER IS " + winnerPlayer.getName());
     }
 

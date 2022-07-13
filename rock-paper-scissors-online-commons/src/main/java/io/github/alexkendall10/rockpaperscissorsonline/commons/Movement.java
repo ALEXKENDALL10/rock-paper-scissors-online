@@ -1,4 +1,4 @@
-package io.github.alexkendall10.rockpaperscissorsonline;
+package io.github.alexkendall10.rockpaperscissorsonline.commons;
 
 public enum Movement {
     ROCK, PAPER, SCISSORS;
