@@ -33,10 +33,11 @@ public class ClientsManager {
             InitialMessage initialMessage = (InitialMessage) objectInputStream.readObject();
             WelcomeMessage welcomeMessage = new WelcomeMessage(initialMessage.getPlayerName());
             objectOutputStream.writeObject(welcomeMessage);
+
             if(player1 == null){
-                player1 = new Player(initialMessage.getPlayerName(),socket);
+                player1 = new Player(initialMessage.getPlayerName(),socket,objectInputStream,objectOutputStream);
             }else{
-                Player player2 = new Player(initialMessage.getPlayerName(),socket);
+                Player player2 = new Player(initialMessage.getPlayerName(),socket,objectInputStream,objectOutputStream);
                 RockPaperScissorsGame game1 = new RockPaperScissorsGame(player1,player2,5);
                 executorService.execute(game1);
                 player1 = null;
