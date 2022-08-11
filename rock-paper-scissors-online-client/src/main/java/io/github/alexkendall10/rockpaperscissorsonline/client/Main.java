@@ -14,9 +14,9 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost",7777);
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
         InitialMessage initialMessage = new InitialMessage("Jaimito");
         objectOutputStream.writeObject(initialMessage);
-        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
         WelcomeMessage welcomeMessage =(WelcomeMessage)objectInputStream.readObject();
         System.out.println(welcomeMessage.getWelcomeText());
     }

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 @AllArgsConstructor
 @Log
-public class RockPaperScissorsGame {
+public class RockPaperScissorsGame implements Runnable{
     private Player player1;
     private Player player2;
     private int roundsNumber;
@@ -53,5 +53,14 @@ public class RockPaperScissorsGame {
         else
             return Winner.PLAYER_1;
 
+    }
+
+    @Override
+    public void run() {
+        try {
+            play();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

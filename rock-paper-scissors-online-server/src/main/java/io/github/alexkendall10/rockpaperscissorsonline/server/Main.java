@@ -8,7 +8,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         int port = 7777;
-        ClientsManager clientsManager = new ClientsManager(port);
+        int rooms  = 10;
+        ClientsManager clientsManager = new ClientsManager(port,rooms);
         clientsManager.start();
     }
 }
