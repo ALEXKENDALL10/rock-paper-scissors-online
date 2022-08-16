@@ -1,9 +1,6 @@
 package io.github.alexkendall10.rockpaperscissorsonline.server;
 
-import io.github.alexkendall10.rockpaperscissorsonline.commons.Movement;
-import io.github.alexkendall10.rockpaperscissorsonline.commons.MovementMessage;
-import io.github.alexkendall10.rockpaperscissorsonline.commons.TextMessage;
-import lombok.AllArgsConstructor;
+import io.github.alexkendall10.rockpaperscissorsonline.commons.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -14,9 +11,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 
-
 @RequiredArgsConstructor
-public class Player{
+public class Player {
     @Getter
     private final String name;
     private final Socket socket;
@@ -25,12 +21,13 @@ public class Player{
     @Getter
     private int wonRounds;
 
-    public void addWonRound(){
+    public void addWonRound() {
         wonRounds++;
     }
-    Movement chooseMovement() {
+
+    Movement getMovement() {
         try {
-            MovementMessage movementMessage = (MovementMessage)objectInputStream.readObject();
+            MovementMessage movementMessage = (MovementMessage) objectInputStream.readObject();
             return movementMessage.getMovement();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -46,4 +43,28 @@ public class Player{
             throw new RuntimeException(e);
         }
     }
+
+    public void requestMovement() {
+        ChooseMovementMessage chooseMovementMessage = new ChooseMovementMessage();
+        try {
+            objectOutputStream.writeObject(chooseMovementMessage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void finalMessage() {
+        FinalMessage finalMessage = new FinalMessage();
+        try {
+            objectOutputStream.writeObject(finalMessage);
+            objectOutputStream.flush();
+            objectOutputStream.close();
+            objectInputStream.close();
+            socket.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

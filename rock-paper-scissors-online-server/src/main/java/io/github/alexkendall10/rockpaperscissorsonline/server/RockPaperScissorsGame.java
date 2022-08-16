@@ -30,18 +30,24 @@ public class RockPaperScissorsGame implements Runnable {
         }
 
         if (player1.getWonRounds() > player2.getWonRounds()) {
-            player1.sendMessage("YOU WIN");
-            player2.sendMessage("YOU LOSE");
+            player1.sendMessage("YOU WIN THE GAME");
+            player2.sendMessage("YOU LOSE THE GAME");
         } else {
-            player2.sendMessage("YOU WIN");
-            player1.sendMessage("YOU LOSE");
+            player2.sendMessage("YOU WIN THE GAME");
+            player1.sendMessage("YOU LOSE THE GAME");
         }
+        player1.finalMessage();
+        player2.finalMessage();
+
     }
 
     private boolean playRound() throws IOException {
-
-        Movement m1p1 = player1.chooseMovement();
-        Movement m1p2 = player2.chooseMovement();
+        
+        player1.requestMovement();
+        player2.requestMovement();
+        
+        Movement m1p1 = player1.getMovement();
+        Movement m1p2 = player2.getMovement();
         player2.sendMessage(player1.getName() + " HAS CHOSEN " + m1p1);
         player1.sendMessage(player2.getName() + " HAS CHOSEN " + m1p2);
 
